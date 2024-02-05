@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
     }
-
-  
     void FixedUpdate()
     {
         change = Vector3.zero;
