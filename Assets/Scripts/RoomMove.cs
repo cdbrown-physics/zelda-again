@@ -43,9 +43,25 @@ public class RoomMove : MonoBehaviour
     }
     private IEnumerator placeNameCo()
     {
+        float fadeTime = 1.5f;
         text.SetActive(true);
         placeText.text = placeName;
         yield return new WaitForSeconds(2f);
+        yield return FadeText(fadeTime, placeText);
         text.SetActive(false);
+        placeText.color = new Color(placeText.color.r, placeText.color.g, placeText.color.b, 1);
+    }
+    private IEnumerator FadeText(float fadeTime, Text t)
+    {
+        if (t == null)
+        {
+            Debug.Log("Text object is null");
+            yield break;
+        }
+        while (t.color.a > 0.0f)
+        {
+            t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a - (Time.deltaTime / fadeTime));
+            yield return null;
+        }
     }
 }
