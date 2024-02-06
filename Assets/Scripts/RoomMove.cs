@@ -49,7 +49,7 @@ public class RoomMove : MonoBehaviour
         yield return new WaitForSeconds(2f);
         yield return FadeText(fadeTime, placeText);
         text.SetActive(false);
-        placeText.color = new Color(placeText.color.r, placeText.color.g, placeText.color.b, 1);
+        placeText.color = new Color(placeText.color.r, placeText.color.g, placeText.color.b, 1); // Reset alpha to 1 or else text will never show again
     }
     private IEnumerator FadeText(float fadeTime, Text t)
     {
